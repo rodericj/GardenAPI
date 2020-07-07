@@ -5,7 +5,7 @@
 
 import Foundation
 
-extension API.Worlds {
+extension GardenAPI.Worlds {
 
     /**
     Creates the world

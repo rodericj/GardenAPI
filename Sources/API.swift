@@ -6,7 +6,7 @@
 import Foundation
 
 /** A way of storing and retrieving AR Garden information */
-public struct API {
+public struct GardenAPI {
 
     /// Whether to discard any errors when decoding optional properties
     public static var safeOptionalDecoding = false

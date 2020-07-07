@@ -3,15 +3,15 @@
 import PackageDescription
 
 let package = Package(
-    name: "API",
+    name: "GardenAPI",
     products: [
-        .library(name: "API", targets: ["API"])
+        .library(name: "GardenAPI", targets: ["GardenAPI"])
     ],
     dependencies: [
         .package(url: "https://github.com/Alamofire/Alamofire.git", .exact("4.9.0")),
     ],
     targets: [
-        .target(name: "API", dependencies: [
+        .target(name: "GardenAPI", dependencies: [
           "Alamofire",
         ], path: "Sources")
     ]
