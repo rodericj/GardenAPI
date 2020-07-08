@@ -9,13 +9,13 @@ public class World: APIModel {
 
     public var title: String
 
-    public var data: String
+    public var data: File
 
     public var anchors: [Anchor]?
 
     public var id: String?
 
-    public init(title: String, data: String, anchors: [Anchor]? = nil, id: String? = nil) {
+    public init(title: String, data: File, anchors: [Anchor]? = nil, id: String? = nil) {
         self.title = title
         self.data = data
         self.anchors = anchors
