@@ -29,12 +29,12 @@ extension GardenAPI.Worlds {
         }
 
         public enum Response: APIResponseValue, CustomStringConvertible, CustomDebugStringConvertible {
-            public typealias SuccessType = [World]
+            public typealias SuccessType = World
 
             /** The world has been created */
-            case status200([World])
+            case status200(World)
 
-            public var success: [World]? {
+            public var success: World? {
                 switch self {
                 case .status200(let response): return response
                 }
@@ -60,7 +60,7 @@ extension GardenAPI.Worlds {
 
             public init(statusCode: Int, data: Data, decoder: ResponseDecoder) throws {
                 switch statusCode {
-                case 200: self = try .status200(decoder.decode([World].self, from: data))
+                case 200: self = try .status200(decoder.decode(World.self, from: data))
                 default: throw APIClientError.unexpectedStatusCode(statusCode: statusCode, data: data)
                 }
             }
