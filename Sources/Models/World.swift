@@ -11,11 +11,11 @@ public class World: APIModel {
 
     public var data: String
 
-    public var anchors: [Anchor]
+    public var anchors: [Anchor]?
 
     public var id: String?
 
-    public init(title: String, data: String, anchors: [Anchor], id: String? = nil) {
+    public init(title: String, data: String, anchors: [Anchor]? = nil, id: String? = nil) {
         self.title = title
         self.data = data
         self.anchors = anchors
@@ -27,7 +27,7 @@ public class World: APIModel {
 
         title = try container.decode("title")
         data = try container.decode("data")
-        anchors = try container.decodeArray("anchors")
+        anchors = try container.decodeArrayIfPresent("anchors")
         id = try container.decodeIfPresent("id")
     }
 
@@ -36,7 +36,7 @@ public class World: APIModel {
 
         try container.encode(title, forKey: "title")
         try container.encode(data, forKey: "data")
-        try container.encode(anchors, forKey: "anchors")
+        try container.encodeIfPresent(anchors, forKey: "anchors")
         try container.encodeIfPresent(id, forKey: "id")
     }
 
